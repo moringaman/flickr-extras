@@ -1,11 +1,17 @@
 .gallery-wrapper {
     transition: all 0.5s ease-in-out;
-    margin: 100px auto;
+    margin: 50px auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 1500px;
 }
+ .title {
+     width: 100%;
+     font-size: 54px;
+     font-weight: 300;
+     padding: 0px 30px;
+ }
 
 .loader {
     visibility: hidden;

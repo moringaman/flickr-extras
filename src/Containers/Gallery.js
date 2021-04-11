@@ -21,7 +21,6 @@ useEffect(() => {
         const response = await fetch(`
         https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=28f4b96f36e68f27ea59927740f61bbd&tag_mode=all&text=${searchTerm}&safe_search=1&content_type=1&extras=tags%2Cdescription&per_page=4&page=${pages.page}1&format=json&nojsoncallback=1
         `) 
-        // const response = await fetch(`https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=28f4b96f36e68f27ea59927740f61bbd&gallery_id=66911286-72157718281911162&get_user_info=1&extras=tags%2Cdescription&per_page=4&page=${pages.page}&format=json&nojsoncallback=1`)
         const json = await response.json()
         const imageArray = json.photos.photo
         imageDispatch({type: 'STACK_IMAGES', images: imageArray})
@@ -39,8 +38,8 @@ useScroll(bottomBoundaryRef, pagesDispatch)
 
     return (
         <>
-        <div className="gallery-wrapper"
-         >
+        <div className="gallery-wrapper">
+            <h1 className="title">Flickr Photo Stream</h1>
         {
             imageData.images.length > 0 && imageData.images.map((el, i) => (
                 <div key={i}>

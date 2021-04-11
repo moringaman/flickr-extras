@@ -28,6 +28,7 @@
     margin: 5px 0px 10px 0px;
     text-overflow: ellipsis;
     height: 70px;
+    max-height: 80px;
     max-width: 250px;
     overflow: hidden;
 }
