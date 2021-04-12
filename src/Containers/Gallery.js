@@ -62,7 +62,7 @@ useScroll(bottomBoundaryRef, pagesDispatch)
             </div>
             } 
         </div>
-        <div id='page-bottom-boundary' style={{ border: '1px solid '}} ref={bottomBoundaryRef}></div>
+        <div id='page-bottom-boundary' style={{ border: '1px solid #ccc'}} ref={bottomBoundaryRef}></div>
         </>
     )
 }
