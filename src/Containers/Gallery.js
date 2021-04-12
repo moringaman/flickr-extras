@@ -6,7 +6,7 @@ import { useScroll } from '../Hooks'
 
 const Gallery = () => {
 
-const initialState = {images: [], fetching: true }
+const initialState = {images: [], fetching: true, error: '' }
 
 const [ searchTerm, setSearchTerm ] = useState('balloons')
 const [ imageData, imageDispatch ] = useReducer(imageReducer, initialState)
@@ -26,7 +26,7 @@ useEffect(() => {
         imageDispatch({type: 'STACK_IMAGES', images: imageArray})
         imageDispatch({type:'FETCHING_IMAGES', fetching: false})
     } catch(err) {
-        imageDispatch({type: 'FETCHING_IMAGES', fetching: true})
+        imageDispatch({type: 'THROW_ERROR', error: 'There was a problem fetching the data..'})
     }
     })()
 }, [imageDispatch, pages.page, searchTerm])
@@ -54,6 +54,9 @@ useScroll(bottomBoundaryRef, pagesDispatch)
                 
             )
             )}
+            {
+                imageData.error && <h1 className="error-msg">{imageData.error}</h1>
+            }
             {imageData.fetching &&
              <div className={`loader ${imageData.fetching} ? visible : null`}>
                 <h2>

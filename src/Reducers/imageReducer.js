@@ -6,12 +6,20 @@ const imageReducer = (state, action) => {
         case 'STACK_IMAGES':
             return {
                 ...state,
-                images: state.images.concat(action.images)
+                images: state.images.concat(action.images),
+                error: ''
             }
         case 'FETCHING_IMAGES':
             return {
                 ...state,
-                fetching: action.fetching
+                fetching: action.fetching,
+                error: ''
+            }
+        case 'THROW_ERROR':
+            return {
+                ...state,
+                fetching: false,
+                error: action.error
             }
         default:
             return state
